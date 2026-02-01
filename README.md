@@ -1,1 +1,1 @@
-# Juliametz.github.io
+# juliametz.github.io
