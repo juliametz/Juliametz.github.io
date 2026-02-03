@@ -1,0 +1,115 @@
+:root{
+  --paper: #fbf3da;
+  --accent: #ff7a3d;
+  --ink-soft: rgba(0,0,0,.55);
+}
+
+/* Reset */
+*{ box-sizing: border-box; }
+
+html, body{
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  font-family: system-ui, sans-serif;
+}
+
+/* Canvas */
+.paper{
+  width: 100vw;
+  height: 100vh;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+/* Layout */
+.content{
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 40px 1fr;
+  padding: 60px;
+}
+
+/* Left side sketch lines */
+.left{
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 40px;
+}
+
+.sketch-block{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.line{
+  height: 4px;
+  background: var(--ink-soft);
+  border-radius: 8px;
+  transform: rotate(-1deg);
+}
+
+.line.long{ width: 85%; }
+.line.medium{ width: 60%; }
+.line.short{ width: 35%; }
+
+/* Divider */
+.divider{
+  position: relative;
+}
+
+.divider::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: var(--ink-soft);
+  border-radius: 3px;
+}
+
+/* Right side */
+.right{
+  position: relative;
+}
+
+.about-circle{
+  position: absolute;
+  right: -55%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+
+  /* SHADING */
+  background: radial-gradient(
+    circle at 50% 50%,
+    #ffb663 0%,
+    #f8834d 45%,
+    #be4f1f 75%,
+    #913511 100%
+  );
+}
+
+
+/* Responsive */
+@media (max-width: 900px){
+  .content{
+    grid-template-columns: 1fr;
+    padding: 40px;
+  }
+
+  .divider{
+    display: none;
+  }
+
+  .about-circle{
+    position: relative;
+    right: -20%;
+    margin-top: 60px;
+  }
+}
